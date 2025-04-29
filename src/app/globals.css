@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'NeuraFont';
+  src: url('/fonts/neura-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeuraFont';
+  src: url('/fonts/neura-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeuraFont';
+  src: url('/fonts/neura-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeuraFont';
+  src: url('/fonts/neura-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 248, 248;
+  --background-end-rgb: 255, 255, 255;
+  
+  --neura-primary: #00C2CE;
+  --neura-primary-hover: #00a1ab;
+  --neura-secondary: #274B6D;
+  --neura-dark: #0A1121;
+  --neura-light: #F4F7FA;
+  --neura-gray: #718096;
+  
+  /* Inchemco Colors */
+  --inchemco-primary: #0056a9;
+  --inchemco-primary-hover: #004489;
+  --inchemco-secondary: #00aaff;
+  --inchemco-dark: #003366;
+  --inchemco-dark-secondary: #00264d;
+  --inchemco-light: #f0f7ff;
+  --inchemco-accent: #ff6600;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 17, 33;
+  --background-end-rgb: 10, 17, 33;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  font-family: 'NeuraFont', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .neura-container {
+    @apply container mx-auto px-4 md:px-6 max-w-7xl;
+  }
+  
+  .neura-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  
+  .neura-subheading {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium;
+  }
+  
+  .neura-btn {
+    @apply bg-inchemco-primary hover:bg-inchemco-primary-hover text-white transition-colors;
+  }
+  
+  .neura-link {
+    @apply text-inchemco-primary hover:text-inchemco-primary-hover font-medium transition-colors;
+  }
+}
+
+/* Custom styles for the cookie consent */
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 17, 33, 0.95);
+  color: white;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-hidden {
+  transform: translateY(100%);
+}
+
+.cookie-visible {
+  transform: translateY(0);
+}
